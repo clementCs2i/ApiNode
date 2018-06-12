@@ -1,0 +1,23 @@
+{
+  "name": "apinode",
+  "version": "1.0.0",
+  "description": "Serveur http API REST",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clementCs2i/ApiNode.git"
+  },
+  "author": "Clement",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clementCs2i/ApiNode/issues"
+  },
+  "homepage": "https://github.com/clementCs2i/ApiNode#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
