@@ -1,7 +1,10 @@
 // imports
 var express = require('express');
 var bodyParser = require('body-parser');
+var fs = require('fs');
+var https = require('https')
 var apirouter = require('./apiRouter').router
+
 // instantiate server
 var server = express();
 
@@ -18,6 +21,9 @@ server.get('/', function (req, res){
 server.use('/api/',apirouter)
 
 //launch serveur
-server.listen(8080, function(){
-console.log('server ok')
-});
+https.createServer({
+    key: fs.readFileSync('privkey.pem'),
+    cert: fs.readFileSync('cert.pem')
+  }, express).listen(443, function(){
+    console.log('server ok')
+    });

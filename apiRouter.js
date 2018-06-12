@@ -7,7 +7,7 @@ exports.router = (function(){
     var apiRouter=express.Router();
 
     //Realm routes
-    apiRouter.route('Realms/iste/').get(reamlsCtrl.listRealm);
+    apiRouter.route('/realms/liste/').get(reamlsCtrl.listRealm);
 
     return apiRouter
 
