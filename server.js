@@ -12,6 +12,12 @@ var server = express();
 server.use(bodyParser.urlencoded({extend:true}));
 server.use(bodyParser.json());
 
+//launch serveur
+https.createServer({
+    key: fs.readFileSync('privkey.pem'),
+    cert: fs.readFileSync('cert.pem')
+  }, server).listen(3000);
+
 //configuration routes
 server.get('/', function (req, res){
     res.setHeader('Content-Type','text/html')
@@ -19,11 +25,3 @@ server.get('/', function (req, res){
 });
 
 server.use('/api/',apirouter)
-
-//launch serveur
-https.createServer({
-    key: fs.readFileSync('privkey.pem'),
-    cert: fs.readFileSync('cert.pem')
-  }, express).listen(443, function(){
-    console.log('server ok')
-    });
