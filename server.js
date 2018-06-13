@@ -13,10 +13,20 @@ server.use(bodyParser.urlencoded({extend:true}));
 server.use(bodyParser.json());
 
 //launch serveur
+
+//////https
 https.createServer({
     key: fs.readFileSync('privkey.pem'),
     cert: fs.readFileSync('cert.pem')
-  }, server).listen(3000);
+}, server).listen(3000);
+
+
+//////http
+//server.listen(3000,function(){
+  //  console.log('serveur ok');
+//});
+
+
 
 //configuration routes
 server.get('/', function (req, res){

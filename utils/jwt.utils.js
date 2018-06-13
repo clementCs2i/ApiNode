@@ -3,6 +3,7 @@ var jwt = require('jsonwebtoken')
 const JWT_SING_SECRET = "oshinijaighathlyij2"
 // exported functions
 module.exports={
+    // création du token de 1 heure
     generateTokenForUser: function(){
         return jwt.sign({
             access:1, 
@@ -16,7 +17,7 @@ module.exports={
     parseAuthorization: function(authorization){
         return (authorization !=null) ? authorization.replace('Bearer ', '') : null;
     },
-
+    // verification du token return  -1 si le token est faux et 1 si il est valide
     getAuthorization: function(authorization){
         var access = -1;
         var token = module.exports.parseAuthorization(authorization);
