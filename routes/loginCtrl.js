@@ -7,7 +7,6 @@ module.exports = {
      //params
      var login = req.body.login;
      var password = req.body.password;
-     console.log("erreur mdp");
      if(login == "" || password == ""){      
          return res.status(400).json({'error':'missing parameters'});       
      }else{

@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 var https = require('https')
 var apirouter = require('./apiRouter').router
-
+var mongoDb = require('./routes/mongoDb/mongoDbCtrl')
 // instantiate server
 var server = express();
 
@@ -12,6 +12,8 @@ var server = express();
 server.use(bodyParser.urlencoded({extend:true}));
 server.use(bodyParser.json());
 
+//Connexion à mongoDb et aux collections
+mongoDb.connectMongoDb();
 //launch serveur
 
 //////https

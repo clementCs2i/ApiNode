@@ -17,7 +17,7 @@ module.exports={
     parseAuthorization: function(authorization){
         return (authorization !=null) ? authorization.replace('Bearer ', '') : null;
     },
-    // verification du token return  -1 si le token est faux et 1 si il est valide
+    // verification du token return -1 si le token est faux et 1 s'il est valide
     getAuthorization: function(authorization){
         var access = -1;
         var token = module.exports.parseAuthorization(authorization);
