@@ -11,6 +11,7 @@ module.exports = {
        mongoose.connect('mongodb://127.0.0.1:27017/wowapi')      
         this.connectCollectionRealms();
         this.connectCollectionItems();
+        this.connectCollectionAuctions();
     },
 
     // connection à la collection realms
@@ -29,8 +30,18 @@ module.exports = {
             var SchemaItems = mongoose.Schema({}, {collection: 'items'});
              items = mongoose.model('items', SchemaItems);       
      },
-    // renvoie la connection à la collection items
-          returnCollectionItems: function(){      
+        // renvoie la connection à la collection items
+        returnCollectionItems: function(){      
             return items;  
          },
+
+        // connection à la collection auctions
+        connectCollectionAuctions: function(){  
+         var SchemaAuctions = mongoose.Schema({}, {collection: 'wowApi'});
+         auctions = mongoose.model('wowApi', SchemaAuctions);       
+ },     
+         // renvoie la connection à la collection auctions
+         returnCollectionAuctions: function(){      
+        return auctions;  
+     },
 }

@@ -17,10 +17,10 @@ exports.router = (function(){
 
     //items routes
     apiRouter.route('/items/search/').get(itemsCtrl.searchItems);
-  //  apiRouter.route('/item/search/').get(itemsCtrl.searchItem);
+    apiRouter.route('/item/search/').get(itemsCtrl.searchItem);
 
     //auctions routes
- //   apiRouter.route('/auctions/search/').get(auctionsCtrl.searchAuctions);
+    apiRouter.route('/auctions/search/').get(auctionsCtrl.searchAuctions);
 
     return apiRouter
 

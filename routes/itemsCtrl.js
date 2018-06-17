@@ -40,7 +40,25 @@ module.exports = {
         if (access<0){
             return res.status(400).json({'error':'wrong token'})
         }else{
-            
+            var Collection = mongoDb.returnCollectionItems();
+            if (Collection == null ){
+               return res.status(400).json({'error':'wrong connection bdd'})
+            }else{
+                if(req.headers.id == null){
+                    return res.status(400).json({'error':'Erreur param requete vide'})
+                }else{
+                Collection.aggregate([
+                    { $match : { id : parseInt(req.headers.id, 10) } }                    
+                 ]).exec(function (err, items) {
+                     if (err) {
+                        console.log(err)
+                        return res.status(400).json({'error':'Erreur execution requete'})
+                     }                     
+                     return res.status(200).json({items})
+                 }     
+                 );
+                }
+            }
         }
     },
 
